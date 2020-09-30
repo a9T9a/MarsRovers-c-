@@ -1,0 +1,11 @@
+C:\Users\ATA\source\repos\Picksoft\Picksoft\bin\Debug\netcoreapp3.1\Picksoft.exe
+C:\Users\ATA\source\repos\Picksoft\Picksoft\bin\Debug\netcoreapp3.1\Picksoft.deps.json
+C:\Users\ATA\source\repos\Picksoft\Picksoft\bin\Debug\netcoreapp3.1\Picksoft.runtimeconfig.json
+C:\Users\ATA\source\repos\Picksoft\Picksoft\bin\Debug\netcoreapp3.1\Picksoft.runtimeconfig.dev.json
+C:\Users\ATA\source\repos\Picksoft\Picksoft\bin\Debug\netcoreapp3.1\Picksoft.dll
+C:\Users\ATA\source\repos\Picksoft\Picksoft\bin\Debug\netcoreapp3.1\Picksoft.pdb
+C:\Users\ATA\source\repos\Picksoft\Picksoft\obj\Debug\netcoreapp3.1\Picksoft.csprojAssemblyReference.cache
+C:\Users\ATA\source\repos\Picksoft\Picksoft\obj\Debug\netcoreapp3.1\Picksoft.AssemblyInfoInputs.cache
+C:\Users\ATA\source\repos\Picksoft\Picksoft\obj\Debug\netcoreapp3.1\Picksoft.AssemblyInfo.cs
+C:\Users\ATA\source\repos\Picksoft\Picksoft\obj\Debug\netcoreapp3.1\Picksoft.dll
+C:\Users\ATA\source\repos\Picksoft\Picksoft\obj\Debug\netcoreapp3.1\Picksoft.pdb
