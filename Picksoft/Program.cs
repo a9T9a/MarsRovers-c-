@@ -5,9 +5,9 @@ namespace Picksoft
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args)                     // Kullanıcı girişleri
         {
-            List<String> new_coord = new List<string>();
+            List<String> new_coord = new List<String>();
             Console.WriteLine("How many rover?");
             int amount_rovers = Convert.ToInt16(Console.ReadLine());
             String[][] rovers = new String[amount_rovers][];
@@ -18,33 +18,35 @@ namespace Picksoft
 
             Console.WriteLine("Upper-Right coordinates of the area");
             String border_line = Console.ReadLine();
-            String[] border = border_line.Split(" ");
+            String[] border = border_line.Split(' ');
 
             for(int i = 0; i < amount_rovers; i++)
             {
-                Console.WriteLine("Rover Position");
+                Console.WriteLine("Position of the rover "+(i+1));
                 String rover_position = Console.ReadLine().ToUpper();
-                String[] rover_coord = rover_position.Split(" ");
+                String[] rover_coord = rover_position.Split(' ');
 
-                Console.WriteLine("Rover route");
+                Console.WriteLine("Route of the rover "+(i+1));
                 String rover_route = Console.ReadLine().ToUpper();
-                String[] rover_line = rover_route.Split("");
+                char[] rover_line = rover_route.ToCharArray();
 
                 Router router = new Router();
 
                 for(int j = 0; j < rover_line.Length; j++)
                 {
-                    new_coord = router.Direction(rover_coord, rover_line[i]);
-                    /*if(Convert.ToInt16(new_coord[0]) > Convert.ToInt16(border[0]) || Convert.ToInt16(new_coord[1]) > Convert.ToInt16(border[1]))
+                    new_coord = router.Direction(rover_coord, Convert.ToString(rover_line[j]));
+
+                    if(Convert.ToInt16(new_coord[0]) > Convert.ToInt16(border[0]) || Convert.ToInt16(new_coord[1]) > Convert.ToInt16(border[1]))
                     {
-                        Console.WriteLine(i + ". rover will be out of the area");
+                        Console.WriteLine("Rover "+(i+1)+" will be out of the area");
+                        break;
                     }
                     else
                     {
                         rover_coord[0] = new_coord[0];
                         rover_coord[1] = new_coord[1];
                         rover_coord[2] = new_coord[2];
-                    }*/
+                    }
                     rover_coord[0] = new_coord[0];
                     rover_coord[1] = new_coord[1];
                     rover_coord[2] = new_coord[2];
@@ -65,23 +67,24 @@ namespace Picksoft
     class Router
     {
         int new_coord;
-        public List<String> Direction(String[] rover_coord, String way)
+        public List<String> Direction(String[] rover_coord, String way)         // Her talimattaki hareketinin belirlenmesi
         {
             List<String> c_list=new List<String>();
             c_list.Clear();
-            if (way.Equals("L"))
+
+            if (way=="L")
             {
                 c_list.Add(rover_coord[0]);
                 c_list.Add(rover_coord[1]);
                 c_list.Add(face_to(rover_coord[2],way));
             }
-            else if (way.Equals("R"))
+            else if (way=="R")
             {
                 c_list.Add(rover_coord[0]);
                 c_list.Add(rover_coord[1]);
                 c_list.Add(face_to(rover_coord[2], way));
             }
-            else if (way.Equals("M")){
+            else if (way=="M"){
                 c_list = Move_forward(rover_coord);
             }
 
@@ -89,13 +92,13 @@ namespace Picksoft
         }
 
 
-        public String face_to(String coord, String way)
+        public String face_to(String coord, String way)     //Yönünün belirlenmesi
         {
             List <String> points =new List<string>() { "W", "N", "E", "S" };
 
             int f_coord = points.IndexOf(coord);
 
-            if (way.Equals("L"))
+            if (way=="L")
             {
                 if (f_coord == 0)
                 {
@@ -106,7 +109,7 @@ namespace Picksoft
                     new_coord = f_coord - 1;
                 }
             }
-            else if (way.Equals("R"))
+            else if (way=="R")
             {
                 if (f_coord == 3)
                 {
@@ -121,23 +124,23 @@ namespace Picksoft
             return points[new_coord];
         }
 
-        public List<String> Move_forward(String[] coord)
+        public List<String> Move_forward(String[] coord)        //İleri hareketteki yeni konumunun belirlenmesi
         {
             List<String> list = new List<String>();
             list.Clear();
-            if (coord[2].Equals("W"))
+            if (coord[2]=="W")
             {
                 coord[0] = Convert.ToString(Convert.ToInt16(coord[0]) - 1);
             }
-            else if (coord[2].Equals("N"))
+            else if (coord[2]=="N")
             {
                 coord[1] = Convert.ToString(Convert.ToInt16(coord[1]) + 1);
             }
-            else if (coord[2].Equals("E"))
+            else if (coord[2]=="E")
             {
                 coord[0] = Convert.ToString(Convert.ToInt16(coord[0]) + 1);
             }
-            else if (coord[2].Equals("S"))
+            else if (coord[2]=="S")
             {
                 coord[1] = Convert.ToString(Convert.ToInt16(coord[1]) - 1);
             }
