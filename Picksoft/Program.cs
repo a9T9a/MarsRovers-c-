@@ -47,9 +47,6 @@ namespace Picksoft
                         rover_coord[1] = new_coord[1];
                         rover_coord[2] = new_coord[2];
                     }
-                    rover_coord[0] = new_coord[0];
-                    rover_coord[1] = new_coord[1];
-                    rover_coord[2] = new_coord[2];
                 }
                 rovers[i][0] = rover_coord[0];
                 rovers[i][1] = rover_coord[1];
